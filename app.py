@@ -166,17 +166,15 @@ with tab1:
                     ships_hi = int(df["Number_of_ships"].max())
 
                     if ships_lo == ships_hi:
-                        ships_hi = ships_lo + 1
-                        default_range = (ships_lo, ships_lo)
+                        ships_min, ships_max = ships_lo, ships_hi
                     else:
-                        default_range = (ships_lo, ships_hi)
+                        ships_min, ships_max = st.slider(
+                            "Fleet size (Number of ships)",
+                            min_value=ships_lo,
+                            max_value=ships_hi,
+                            value=(ships_lo, ships_hi)
+    )
 
-                    ships_min, ships_max = st.slider(
-                        "Fleet size (Number of ships)",
-                        min_value=ships_lo,
-                        max_value=ships_hi,
-                        value=default_range
-                    )
                 with col6:
                     trips_lo = int(df["Trips_per_ship"].min())
                     trips_hi = int(df["Trips_per_ship"].max())
