@@ -55,7 +55,7 @@ def plot_pareto(
     )
 
     if df.empty:
-        return pd.DataFrame(), pd.DataFrame()
+        return pd.DataFrame(columns=df.columns), pd.DataFrame(columns=df.columns)
 
     # Bounds for grid sampling
     C_min = df[cost_1].min()

@@ -166,7 +166,7 @@ class Propulsion(object):
         self.eff_int = eff_int
 
     def calculate_efficiency(self, V):
-        return self.eff_int + self.eff_1 * V + self.eff_2 * pow(V,2) +self.eff_2 * pow(V,3) + self.eff_4 * pow(V,4)
+        return self.eff_int + self.eff_1 * V + self.eff_2 * pow(V,2) +self.eff_3 * pow(V,3) + self.eff_4 * pow(V,4)
 
 
     def __str__(self):

@@ -18,9 +18,6 @@ def get_ship_draft(hull,L):
     """Return ship draft based on length."""
     return hull.calculate_draft(L)
 
-def get_ship_weight(hull,L):
-    """Return ship displacement weight."""
-    return hull.calculate_weight(L)
 
 def get_ship_impact(hull,L):
     """Return ship displacement weight."""
