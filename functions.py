@@ -1,5 +1,4 @@
 import math
-import mpmath as mp
 
 def get_speed_boundaries(hull, L):
     """ Returns the minimum and maximum feasible ship speed based on Froude limits."""
