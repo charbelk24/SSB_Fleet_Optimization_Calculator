@@ -162,16 +162,36 @@ with tab1:
                 # --- Row 3: Fleet size & Trips per ship ---
                 col5, col6 = st.columns(2)
                 with col5:
+                    ships_lo = int(df["Number_of_ships"].min())
+                    ships_hi = int(df["Number_of_ships"].max())
+
+                    if ships_lo == ships_hi:
+                        ships_hi = ships_lo + 1
+                        default_range = (ships_lo, ships_lo)
+                    else:
+                        default_range = (ships_lo, ships_hi)
+
                     ships_min, ships_max = st.slider(
                         "Fleet size (Number of ships)",
-                        int(df["Number_of_ships"].min()), int(df["Number_of_ships"].max()),
-                        (int(df["Number_of_ships"].min()), int(df["Number_of_ships"].max()))
+                        min_value=ships_lo,
+                        max_value=ships_hi,
+                        value=default_range
                     )
                 with col6:
+                    trips_lo = int(df["Trips_per_ship"].min())
+                    trips_hi = int(df["Trips_per_ship"].max())
+
+                    if trips_lo == trips_hi:
+                        trips_hi = trips_lo + 1
+                        default_range = (trips_lo, trips_lo)
+                    else:
+                        default_range = (trips_lo, trips_hi)
+
                     trips_min, trips_max = st.slider(
                         "Trips per ship",
-                        int(df["Trips_per_ship"].min()), int(df["Trips_per_ship"].max()),
-                        (int(df["Trips_per_ship"].min()), int(df["Trips_per_ship"].max()))
+                        min_value=trips_lo,
+                        max_value=trips_hi,
+                        value=default_range
                     )
 
                 # Hull & Energy filters
