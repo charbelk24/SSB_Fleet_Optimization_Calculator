@@ -182,17 +182,14 @@ with tab1:
                     trips_hi = int(df["Trips_per_ship"].max())
 
                     if trips_lo == trips_hi:
-                        trips_hi = trips_lo + 1
-                        default_range = (trips_lo, trips_lo)
+                        trips_min, trips_max = trips_lo, trips_hi
                     else:
-                        default_range = (trips_lo, trips_hi)
-
-                    trips_min, trips_max = st.slider(
-                        "Trips per ship",
-                        min_value=trips_lo,
-                        max_value=trips_hi,
-                        value=default_range
-                    )
+                        trips_min, trips_max = st.slider(
+                            "Trips per ship",
+                            min_value=trips_lo,
+                            max_value=trips_hi,
+                            value=(trips_lo, trips_hi)
+                         )
 
                 # Hull & Energy filters
                 hulls = st.multiselect(
